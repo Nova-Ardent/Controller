@@ -8,6 +8,7 @@ Controller is a wrapper to unity's Input system, that allows centralization of k
 ```
 The command `SetupControllers` initializes the controllers for the system, and `SetController` defines what controller type is currently active. `SetControllerType` can be called at any time to change the active controller type.
 
+## Defining new named controls
 To define what named controls you have, you can add them freely to the enum `Controls` inside Controller.cs, There exists a few example controls already present there.
 ```csharp
         public enum Controls
@@ -22,7 +23,7 @@ To define what named controls you have, you can add them freely to the enum `Con
             Run,
         }
 ```
-
+## Giving the named controls functionality.
 To define the behaviour of the given controls, you can add them to `SetupKeyboard` `SetupXbox` and `SetupPS`. The following are examples of a setup for a basic character controller on keyboard
 ```
             SetupButtonDown(KeyCode.Space, Controls.Jump);
@@ -37,6 +38,7 @@ To define the behaviour of the given controls, you can add them to `SetupKeyboar
 ```
 At any point in time the controls can be overwritten with new controls by simply rerunning the various setup functions on any of the controller base classes.
 
+## Example of use
 Defining jump as the space bar, Camera movement by the Mouse X and Y values, WASD movement, and shift for running. Running the actions for youe gameplay would potentially look something like so:
 ```csharp
         public override void UpdateJump()
